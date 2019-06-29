@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Home
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form" (keyup.enter)="form.valid && submit()" (ngSubmit)="submit()">
+    <ion-list>
+      <ion-item>
+        <ion-label position="floating">
+          First name
+          <span *ngIf="formInputIsRequired('firstName')" class="required">&#42;</span>
+        </ion-label>
+        <ion-input type="text" formControlName="firstName"></ion-input>
+      </ion-item>
+      <app-form-input-error [form]="form" formInput='firstName'></app-form-input-error>
+      <ion-item>
+        <ion-label position="floating">
+          Last name
+          <span *ngIf="formInputIsRequired('lastName')" class="required">&#42;</span>
+        </ion-label>
+        <ion-input type="text" formControlName="lastName"></ion-input>
+      </ion-item>
+      <app-form-input-error [form]="form" formInput='lastName'></app-form-input-error>
+      <ion-item>
+        <ion-label position="floating">
+          Email
+          <span *ngIf="formInputIsRequired('email')" class="required">&#42;</span>
+        </ion-label>
+        <ion-input type="text" formControlName="email"></ion-input>
+      </ion-item>
+      <app-form-input-error [form]="form" formInput='email'></app-form-input-error>
+      <ion-item>
+        <ion-label position="floating">
+          Password
+          <span *ngIf="formInputIsRequired('password')" class="required">&#42;</span>
+        </ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+      <app-form-input-error [form]="form" formInput='password'></app-form-input-error>
+      <ion-item>
+        <ion-label position="floating">
+          Confirm password
+          <span *ngIf="formInputIsRequired('confirmPassword')" class="required">&#42;</span>
+        </ion-label>
+        <ion-input type="password" formControlName="confirmPassword"></ion-input>
+      </ion-item>
+      <app-form-input-error [form]="form" formInput='confirmPassword'></app-form-input-error>
+    </ion-list>
+    <ion-grid>
+      <ion-row justify-content-center align-items-center>
+        <ion-col size="auto">
+          <ion-button type="submit" [disabled]="!form.valid" expand="full" shape="round">Submit</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </form>
+
+</ion-content>
