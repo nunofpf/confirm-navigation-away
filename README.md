@@ -1,0 +1,1 @@
+# ionic-confirm-navigation-away
